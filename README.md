@@ -9,7 +9,8 @@ Usage
 -----
 
 1. Deploy the code with `deploy.sh`. The script will output the endpoint URL:
-   ```Endpoint: https://xyzabc1234.execute-api.us-east-1.amazonaws.com/Prod/trigger```
+
+```Endpoint: https://xyzabc1234.execute-api.us-east-1.amazonaws.com/Prod/trigger```
    
 2. In your Bitbucket repository settings, open the Webhooks section
    and click "Add webhook".

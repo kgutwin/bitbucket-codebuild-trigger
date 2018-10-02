@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: Trigger a CodeBuild run from a webhook.
+
+Resources:
+  CodeDeployTrigger:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.6
+      CodeUri: .
+      Description: Trigger a CodeBuild run from a webhook
+      MemorySize: 128
+      Timeout: 15
+      Policies:
+        - Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Action:
+                - codebuild:StartBuild
+              Resource: '*'
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /trigger
+            Method: ANY
